@@ -20,6 +20,7 @@ public class BookDto {
     private String author;
     private String title;
     private String genre;
+    private Integer quantity;
 
     public static BookDto fromDomain(Book book) {
         BookDto bookDto = new BookDto();
@@ -28,6 +29,7 @@ public class BookDto {
         bookDto.setAuthor(book.getAuthor());
         bookDto.setTitle(book.getTitle());
         bookDto.setGenre(book.getGenre());
+        bookDto.setQuantity(book.getQuantity());
         return bookDto;
     }
 
@@ -38,6 +40,7 @@ public class BookDto {
                 .withAuthor(author)
                 .withTitle(title)
                 .withGenre(genre)
+                .withQuantity(quantity)
                 .build();
     }
 }

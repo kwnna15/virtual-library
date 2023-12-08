@@ -1,4 +1,4 @@
-package se.kwnna.library.domain.book;
+package se.kwnna.library.domain.book_loan_register;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,10 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Book {
-    private final Integer id;
-    private final String isbn;
-    private final String author;
-    private final String title;
-    private final String genre;
-    private final Integer quantity;
+public class BookLoanRegister {
+    private final Integer loanId;
+    private final Integer userId;
+    private final Integer bookId;
+    private final String startDate;
+    private final String endDate;
 }

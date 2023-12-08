@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import se.kwnna.library.application.finder.BookFinder;
+import se.kwnna.library.application.service.BookFinderService;
 import se.kwnna.library.application.validation.BookValidator;
 import se.kwnna.library.domain.book.Book;
 
@@ -21,7 +21,7 @@ import se.kwnna.library.domain.book.Book;
 @RequestMapping(path = "/api/book")
 public class BookController {
 
-    private final BookFinder bookFinder;
+    private final BookFinderService bookFinder;
     private final BookValidator bookValidator;
 
     @GetMapping("/find/title/{title}")
