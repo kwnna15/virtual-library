@@ -13,7 +13,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class BookLoanRegister {
-    private final Integer loanId;
+    private final Integer id;
     private final Integer userId;
     private final Integer bookId;
     private final String startDate;

@@ -18,13 +18,13 @@ insert into BOOK_DTO (isbn,title,author,genre,quantity) values
 
 insert into USER_DTO (name,address) values
 ('Maria Bello','Trees Street 13'),
-('Kent Blah','Sveavagen 57')
-('Joel','Lidnersplan 57')
+('Kent Blah','Sveavagen 57'),
+('Joel','Lidnersplan 57'),
 ('Konna','Sveavagen 45')
 ;
 
-insert into BOOK_LOAN_REGISTER_DTO (userId,bookId,startDate,endDate) values
-(1,3, "31/12/2023", "04/01/2024"),
-(2,4, "28/12/2023", "05/01/2024"),
-(4,10, "15/12/2023", "04/01/2024")
+insert into BOOK_LOAN_REGISTER_DTO (USER_ID,BOOK_ID,START_DATE,END_DATE) values
+(1,3, '31/12/2023', '04/01/2024'),
+(2,4, '28/12/2023', '05/01/2024'),
+(4,10, '15/12/2023', '04/01/2024')
 ;

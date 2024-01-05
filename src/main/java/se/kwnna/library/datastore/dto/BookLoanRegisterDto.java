@@ -15,7 +15,7 @@ import se.kwnna.library.domain.book_loan_register.BookLoanRegister;
 public class BookLoanRegisterDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer loanId;
+    private Integer id;
     private Integer userId;
     private Integer bookId;
     private String startDate;
@@ -23,7 +23,7 @@ public class BookLoanRegisterDto {
 
     public static BookLoanRegisterDto fromDomain(BookLoanRegister bookLoanRegister) {
         BookLoanRegisterDto bookLoanRegisterDto = new BookLoanRegisterDto();
-        bookLoanRegisterDto.setLoanId(bookLoanRegister.getLoanId());
+        bookLoanRegisterDto.setId(bookLoanRegister.getId());
         bookLoanRegisterDto.setUserId(bookLoanRegister.getUserId());
         bookLoanRegisterDto.setBookId(bookLoanRegister.getBookId());
         bookLoanRegisterDto.setStartDate(bookLoanRegister.getStartDate());
@@ -33,7 +33,7 @@ public class BookLoanRegisterDto {
 
     public BookLoanRegister toDomain() {
         return BookLoanRegister.builder()
-                .withLoanId(loanId)
+                .withId(id)
                 .withUserId(userId)
                 .withBookId(bookId)
                 .withStartDate(startDate)

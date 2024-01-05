@@ -28,3 +28,13 @@ password=password
 #### Admin
 username=admin
 password=password
+
+# TODO
+* Add get endpoint to retrieve information about a loan given an id
+* Add a return loan post endpoint
+* Write tests
+* Refactor - clean up the code
+
+Optional:
+* Fix race condition
+* Fix shortcuts
