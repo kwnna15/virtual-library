@@ -41,6 +41,10 @@ public class BookLoanService {
         return Optional.empty();
     }
 
+    public Optional<BookLoanRegister> findLoan(Integer loanId) {
+        return bookLoanRegisterService.findById(loanId);
+    }
+
     private void weTestedSomeStuff() {
         LoanConstructor lc = new LoanConstructor(1);
 

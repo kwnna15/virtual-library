@@ -3,6 +3,7 @@ package se.kwnna.library.application.controller;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,19 @@ public class BookLoanController {
     public ResponseEntity<BookLoanRegister> loan(@PathVariable Integer bookId, @RequestBody Integer userId) {
         log.info("Received a Loan request of id={}, user id={}", bookId, userId);
         Optional<BookLoanRegister> bookLoanRegister = bookLoanService.loan(bookId, userId);
+        if (bookLoanRegister.isPresent()) {
+            // 200
+            return ResponseEntity.ok(bookLoanRegister.get());
+        } else {
+            // 214
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    @GetMapping("/info/{loanId}")
+    public ResponseEntity<BookLoanRegister> findLoan(@PathVariable Integer loanId) {
+        log.info("Found the Loan request of id={}", loanId);
+        Optional<BookLoanRegister> bookLoanRegister = bookLoanService.findLoan(loanId);
         if (bookLoanRegister.isPresent()) {
             // 200
             return ResponseEntity.ok(bookLoanRegister.get());
