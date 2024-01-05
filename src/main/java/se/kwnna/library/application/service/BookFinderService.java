@@ -1,7 +1,8 @@
-package se.kwnna.library.application.finder;
+package se.kwnna.library.application.service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,16 @@ import se.kwnna.library.domain.book.Book;
 
 @Service
 @AllArgsConstructor
-public class BookFinder {
+public class BookFinderService {
 
     private final BookService bookService;
 
+    ///////
+    public Optional<Book> findById(Integer id) {
+        Optional<Book> book = bookService.findById(id);
+        return book;
+    }
+    
     public List<Book> findByTitle(String title, String sortBy) {
         List<Book> books = bookService.findAllByTitleContaining(title);
         return sort(books, sortBy);

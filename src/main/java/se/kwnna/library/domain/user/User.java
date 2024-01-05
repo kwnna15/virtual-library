@@ -1,4 +1,4 @@
-package se.kwnna.library.domain.book;
+package se.kwnna.library.domain.user;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,8 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Book {
+public class User {
     private final Integer id;
-    private final String isbn;
-    private final String author;
-    private final String title;
-    private final String genre;
-    private final Integer quantity;
+    private final String name;
+    private final String address;
 }
