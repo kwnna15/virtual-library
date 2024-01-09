@@ -15,6 +15,7 @@ import se.kwnna.library.domain.book_loan_register.BookLoanRegister;
 import se.kwnna.library.domain.book_loan_register.Cake;
 import se.kwnna.library.domain.book_loan_register.LoanConstructor;
 import se.kwnna.library.domain.book_loan_register.LoanSetter;
+import se.kwnna.library.domain.exception.UnknownBookException;
 
 @Service
 @AllArgsConstructor
@@ -45,14 +46,23 @@ public class BookLoanService {
         return bookLoanRegisterService.findById(loanId);
     }
 
-    private void weTestedSomeStuff() {
-        LoanConstructor lc = new LoanConstructor(1);
-
-        LoanSetter ls = new LoanSetter();
-        ls.setLoanId(1);
-
-        Cake cake = Cake.builder()
-                .withSugarInGrams(1)
-                .build();
+    public Optional<BookLoanRegister> returnLoan(Integer loanId) {
+        Optional<BookLoanRegister> bookLoanRegister = findLoan(loanId);
+        if (bookLoanRegister.isPresent()) {
+            int bookId = bookLoanRegister.get().getBookId();
+            Optional<Book> book = bookService.findById(bookId);
+            if (book.isPresent()) {
+                Book updatedBook = book.get().toBuilder()
+                        .withQuantity(book.get().getQuantity() + 1)
+                        .build();
+                bookService.save(updatedBook);
+            } else {
+                throw new UnknownBookException("Could not find book with id " + bookId);
+            }
+            bookLoanRegisterService.deleteById(loanId);
+            return bookLoanRegister;
+        } else {
+            return Optional.empty();
+        }
     }
 }

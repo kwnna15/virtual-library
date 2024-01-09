@@ -30,7 +30,6 @@ username=admin
 password=password
 
 # TODO
-* Add a return loan post endpoint
 * Write tests
 * Refactor - clean up the code
 

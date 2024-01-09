@@ -48,4 +48,17 @@ public class BookLoanController {
         }
     }
 
+    @PostMapping("/return/{loanId}")
+    public ResponseEntity<BookLoanRegister> returnBook(@PathVariable Integer loanId) {
+        log.info("Received a Return Book request for loan id={}", loanId);
+        Optional<BookLoanRegister> bookLoanRegister = bookLoanService.returnLoan(loanId);
+        if (bookLoanRegister.isPresent()) {
+            // 200
+            return ResponseEntity.ok(bookLoanRegister.get());
+        } else {
+            // 400
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
 }
