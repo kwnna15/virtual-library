@@ -43,6 +43,7 @@ public class BookMvcTestCreator {
                 .withAuthor(author)
                 .withTitle(title)
                 .withGenre(genre)
+                .withQuantity(1)
                 .build();
 
         MvcResult result = mockMvc.perform(post("/admin/book/save")

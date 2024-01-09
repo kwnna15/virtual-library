@@ -14,6 +14,7 @@ public class BookTestBuilder {
                 .withTitle("title")
                 .withAuthor("author")
                 .withGenre("genre")
+                .withQuantity(1)
                 .build();
     }
 }

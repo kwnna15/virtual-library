@@ -28,3 +28,11 @@ password=password
 #### Admin
 username=admin
 password=password
+
+# TODO
+* Write tests
+* Refactor - clean up the code
+
+Optional:
+* Fix race condition
+* Fix shortcuts

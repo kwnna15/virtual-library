@@ -19,10 +19,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests()
-                .antMatchers(AUTH_WHITE_LIST).permitAll()
-                .antMatchers("/api/**").hasRole("USER")
-                .antMatchers("/admin/**").hasRole("ADMIN");
+        http
+        .csrf().disable()
+        .httpBasic().and().authorizeRequests()
+        .antMatchers("**").permitAll();
+                //.antMatchers(AUTH_WHITE_LIST).permitAll()
+                //.antMatchers("/api/**").hasRole("USER")
+                //.antMatchers("/admin/**").hasRole("ADMIN");
     }
 
     @Override
