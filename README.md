@@ -30,7 +30,6 @@ username=admin
 password=password
 
 # TODO
-* Write tests
 * Refactor - clean up the code
 
 Optional:
