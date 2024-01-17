@@ -18,4 +18,7 @@ public class BookLoanRegister {
     private final Integer bookId;
     private final String startDate;
     private final String endDate;
+    public Integer size() {
+        return null;
+    }
 }
